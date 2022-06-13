@@ -1,0 +1,19 @@
+# Maintainer: Osaki Tsukiko <osakitsukiko.linux@github.com>
+pkgname=povy-dmenu
+pkgver=0.1
+pkgrel=1
+pkgdesc="stock dmenu"
+arch=('x86_64')
+url="https://github.com/povy-linux/povy-dmenu"
+license=('MIT')
+makedepends=('git' 'make')
+provides=('dmenu')
+conflicts=()
+replaces=('dmenu')
+source=("git+$url")
+sha512sums=('SKIP')
+
+package() {
+	cd "$pkgname"
+	make DESTDIR="$pkgdir/" install
+}

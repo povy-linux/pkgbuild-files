@@ -1,0 +1,21 @@
+# Maintainer: Osaki Tsukiko <osakitsukiko.linux@github.com>
+pkgname=povy-wm
+pkgver=0.1
+pkgrel=1
+pkgdesc="Povy Linux Window Manager. Based on BlossomDWM"
+arch=('x86_64')
+url="https://github.com/povy-linux/povy-wm"
+license=('MIT')
+depends=('povy-dmenu')
+makedepends=('git' 'make')
+optdepends=('alacritty' 'picom' 'maim')
+provides=('dwm')
+conflicts=()
+replaces=('dwm')
+source=("git+$url")
+sha512sums=('SKIP')
+
+package() {
+	cd "$pkgname"
+	make DESTDIR="$pkgdir/" install
+}
